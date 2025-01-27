@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WBTSdata.merge_datasets &mdash; WBTSdata v0.0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
@@ -71,18 +71,18 @@
            <div itemprop="articleBody">
              
   <h1>Source code for WBTSdata.merge_datasets</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">from</span> <span class="nn">WBTSdata</span> <span class="kn">import</span> <span class="n">load_vel_files</span><span class="p">,</span> <span class="n">load_cal_files</span><span class="p">,</span> <span class="n">tools</span><span class="p">,</span> <span class="n">convert</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">WBTSdata</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_vel_files</span><span class="p">,</span> <span class="n">load_cal_files</span><span class="p">,</span> <span class="n">tools</span><span class="p">,</span> <span class="n">convert</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 
 <div class="viewcode-block" id="dir_list_CTD">
 <a class="viewcode-back" href="../../WBTSdata.html#WBTSdata.merge_datasets.dir_list_CTD">[docs]</a>
-<span class="k">def</span> <span class="nf">dir_list_CTD</span><span class="p">(</span><span class="n">input_dir</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dir_list_CTD</span><span class="p">(</span><span class="n">input_dir</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    create a list with all the directories that contain the CTD data</span>
 <span class="sd">    </span>
@@ -109,7 +109,7 @@
 
 <div class="viewcode-block" id="dir_list_ADCP">
 <a class="viewcode-back" href="../../WBTSdata.html#WBTSdata.merge_datasets.dir_list_ADCP">[docs]</a>
-<span class="k">def</span> <span class="nf">dir_list_ADCP</span><span class="p">(</span><span class="n">input_dir</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dir_list_ADCP</span><span class="p">(</span><span class="n">input_dir</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    create a list with all the directories that contain the ADCP data</span>
 <span class="sd">    </span>
@@ -140,7 +140,7 @@
 
 <div class="viewcode-block" id="create_coordinates_with_ADCPtimes">
 <a class="viewcode-back" href="../../WBTSdata.html#WBTSdata.merge_datasets.create_coordinates_with_ADCPtimes">[docs]</a>
-<span class="k">def</span> <span class="nf">create_coordinates_with_ADCPtimes</span><span class="p">(</span><span class="n">cal_dir</span><span class="p">,</span> <span class="n">input_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_coordinates_with_ADCPtimes</span><span class="p">(</span><span class="n">cal_dir</span><span class="p">,</span> <span class="n">input_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Create a list of coordinates for the CTD data with the corresponding ADCP times</span>
 <span class="sd">    </span>
@@ -183,7 +183,7 @@
 
 <div class="viewcode-block" id="create_CTD_Dataset_with_ADCPtimes">
 <a class="viewcode-back" href="../../WBTSdata.html#WBTSdata.merge_datasets.create_CTD_Dataset_with_ADCPtimes">[docs]</a>
-<span class="k">def</span> <span class="nf">create_CTD_Dataset_with_ADCPtimes</span><span class="p">(</span><span class="n">cal_dir</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_CTD_Dataset_with_ADCPtimes</span><span class="p">(</span><span class="n">cal_dir</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a CTD dataset with the corresponding ADCP times.</span>
 
@@ -238,7 +238,7 @@
 
 <div class="viewcode-block" id="merge_datasets">
 <a class="viewcode-back" href="../../WBTSdata.html#WBTSdata.merge_datasets.merge_datasets">[docs]</a>
-<span class="k">def</span> <span class="nf">merge_datasets</span><span class="p">(</span><span class="n">cal_dir</span><span class="p">,</span> <span class="n">vel_dir</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">merge_datasets</span><span class="p">(</span><span class="n">cal_dir</span><span class="p">,</span> <span class="n">vel_dir</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Merge the CTD and ADCP datasets.</span>
 <span class="sd">    </span>
@@ -281,7 +281,7 @@
     
 <div class="viewcode-block" id="merge_years">
 <a class="viewcode-back" href="../../WBTSdata.html#WBTSdata.merge_datasets.merge_years">[docs]</a>
-<span class="k">def</span> <span class="nf">merge_years</span><span class="p">(</span><span class="n">merge_dir</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">merge_years</span><span class="p">(</span><span class="n">merge_dir</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Merge the datasets of different years into one dataset</span>
 <span class="sd">    </span>
@@ -329,7 +329,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Eleanor Frajka-Williams, Till Moritz.</p>
+    <p>&#169; Copyright 2025, Till Moritz, Eleanor Frajka-Williams.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
